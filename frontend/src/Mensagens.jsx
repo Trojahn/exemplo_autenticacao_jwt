@@ -15,8 +15,8 @@ function Mensagens(props) {
   }
 
   async function carregarMensagens() {
-    const res = await fetch("http://localhost:8000/mensagem", {
-      headers: { Authorization: props.token },
+    const res = await fetch("http://localhost:3000/msg", {
+      headers: { Authorization: `Bearer ${props.token}` },
     });
     const json = await res.json();
     setMensagens(json);
@@ -52,12 +52,12 @@ function Mensagens(props) {
 
   async function adicionar(e) {
     e.preventDefault();
-    const res = await fetch("http://localhost:8000/mensagem", {
+    const res = await fetch("http://localhost:3000/msg", {
       method: "POST",
       body: JSON.stringify({ texto: texto }),
       headers: {
         "Content-Type": "application/json",
-        Authorization: props.token,
+        Authorization: `Bearer ${props.token}`,
       },
     });
     if (!res.ok) {

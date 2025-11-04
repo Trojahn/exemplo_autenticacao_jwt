@@ -21,7 +21,7 @@ function FormLogin(props) {
   async function login(e) {
     try {
       e.preventDefault();
-      const res = await fetch("http://localhost:8000/usuario/login", {
+      const res = await fetch("http://localhost:3000/login", {
         method: "POST",
         body: JSON.stringify(inp),
         headers: { "Content-type": "application/json" },

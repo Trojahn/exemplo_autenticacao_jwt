@@ -21,12 +21,12 @@ function FormCadastrar(props) {
   async function cadastrar(e) {
     try {
       e.preventDefault();
-      const res = await fetch("http://localhost:8000/usuario", {
+      const res = await fetch("http://localhost:3000/user", {
         method: "POST",
         body: JSON.stringify(inp),
         headers: {"Content-type" : "application/json"}
       });
-      const json = res.json();
+      const json = await res.json();
       if (!res.ok) {
         alert(json.msg);
         return;
